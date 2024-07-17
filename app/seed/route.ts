@@ -33,10 +33,21 @@ async function seedUsers() {
   }
 }
 
+async function getUsers() {
+  const client = await db.connect();
+  try {
+    const result = await client.sql`SELECT * FROM users;`;
+    return result;
+  } finally {
+    client.release();
+  }
+}
+
 export async function GET() {
   try {
     await seedUsers();
-    return new Response("Users seeded successfully", { status: 200 });
+    const users = await getUsers();
+    return new Response(JSON.stringify(users), { status: 200, headers: { "Content-Type": "application/json" } });
   } catch (error) {
     return new Response(error.message, { status: 500 });
   }
