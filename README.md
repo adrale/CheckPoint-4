@@ -1,3 +1,7 @@
+## Link to Figma
+
+https://www.figma.com/design/GhOCIOZ2Qd10X6PxgC8EuC/Portfolio?node-id=0-1&t=7p10HzCHrGXJsP8z-1
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
