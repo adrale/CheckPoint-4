@@ -20,7 +20,10 @@ export default function Form({ project }: FormProps) {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const formattedImageUrl = imageUrl.startsWith('/projects/') ? imageUrl : `/projects/${imageUrl}`
+    let formattedImageUrl = imageUrl.startsWith('/projects/') ? imageUrl : `/projects/${imageUrl}`
+    if (!formattedImageUrl.endsWith('.svg')) {
+      formattedImageUrl += '.svg';
+    }
 
     try {
       const updatedProject: Project = {
