@@ -1,9 +1,10 @@
 import bcrypt from "bcrypt";
 import { db } from "@vercel/postgres";
-import { users } from "../lib/placeholder-data";
+import { users, projects, technos } from "../lib/placeholder-data";
+
+const client = await db.connect();
 
 async function seedUsers() {
-  const client = await db.connect();
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`;
     await client.sql`
@@ -33,22 +34,56 @@ async function seedUsers() {
   }
 }
 
-async function getUsers() {
-  const client = await db.connect();
+async function seedProjects() {
   try {
-    const result = await client.sql`SELECT * FROM users;`;
-    return result;
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`;
+
+    await client.sql`
+      CREATE TABLE IF NOT EXISTS projects (
+        id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+        title VARCHAR(255) NOT NULL,
+        description VARCHAR(255) NOT NULL,
+        image_url VARCHAR(255) NOT NULL
+      );
+    `;
+
+    const insertedProjects = await Promise.all(
+      projects.map((project) => client.sql`
+        INSERT INTO projects (id, title, description, image_url)
+        VALUES (${project.id}, ${project.title}, ${project.description}, ${project.image_url})
+        ON CONFLICT (id) DO NOTHING;
+      `)
+    );
+
+    return insertedProjects;
   } finally {
     client.release();
   }
 }
 
-export async function GET() {
+async function seedTechnos() {
+
   try {
-    await seedUsers();
-    const users = await getUsers();
-    return new Response(JSON.stringify(users), { status: 200, headers: { "Content-Type": "application/json" } });
-  } catch (error) {
-    return new Response(error.message, { status: 500 });
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp";`;
+
+    await client.sql`
+      CREATE TABLE IF NOT EXISTS technos (
+        id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+        name VARCHAR(255) NOT NULL,
+        image_url VARCHAR(255) NOT NULL
+      );
+    `;
+
+    const insertedTechnos = await Promise.all(
+      technos.map((techno) => client.sql`
+        INSERT INTO technos (id, name, image_url)
+        VALUES (${techno.id}, ${techno.name}, ${techno.image_url})
+        ON CONFLICT (id) DO NOTHING;
+      `)
+    );
+
+    return insertedTechnos;
+  } finally {
+    client.release();
   }
 }
