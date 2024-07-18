@@ -1,7 +1,15 @@
+'use client';
+
+import Header from "@/app/ui/portfolio/Header";
+import Hero from "@/app/ui/portfolio/Hero";
+import Status from "@/app/ui/portfolio/Status";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Hello Portfolio</h1>
+    <main>
+      <Header />
+      <Hero/>
+      <Status/>
     </main>
   );
 }
