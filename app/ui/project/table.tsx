@@ -23,9 +23,6 @@ export default function Table() {
     getProjects();
   }, []);
 
-  if (error) {
-    return <div>Erreur : {error}</div>;
-  }
 
   return (
     <div className="mt-6 flow-root">

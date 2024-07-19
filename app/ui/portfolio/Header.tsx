@@ -8,8 +8,8 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className="sticky top-0 py-4">
-      <Section className="flex items-baseline">
-        <h1 className="text-lg font-bold text-primary">Alexandre Moro</h1>
+      <Section className="flex items-baseline pb-24">
+        <h1 className="text-lg font-bold text-primary">PAM</h1>
         <div className="flex-1" />
         <ul className="flex items-center gap-2">
           <Link

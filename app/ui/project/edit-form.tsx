@@ -13,9 +13,10 @@ type FormProps = {
 
 export default function Form({ project }: FormProps) {
   const router = useRouter();
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState(project.title);
+  const [description, setDescription] = useState(project.description);
   const [imageUrl, setImageUrl] = useState('');
+
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -44,7 +45,7 @@ export default function Form({ project }: FormProps) {
     <form onSubmit={handleSubmit}>
       {/* Project Name */}
       <div className="rounded-md bg-gray-50 p-4 md:p-6 mb-6">
-        <label htmlFor="title" className="mb-2 block text-sm font-medium">
+        <label htmlFor="title" className="mb-2 block text-sm font-medium text-secondary">
           Nom de projet
         </label>
         <input
@@ -53,14 +54,14 @@ export default function Form({ project }: FormProps) {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
-          className="w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          className="w-full rounded-md border text-secondary border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           placeholder="Entrez le nom du projet"
         />
       </div>
 
       {/* Project Description */}
       <div className="rounded-md bg-gray-50 p-4 md:p-6 mb-6">
-        <label htmlFor="description" className="mb-2 block text-sm font-medium">
+        <label htmlFor="description" className="mb-2 block text-sm font-medium text-secondary">
           Description de projet
         </label>
         <input
@@ -69,14 +70,14 @@ export default function Form({ project }: FormProps) {
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
-          className="w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          className="w-full rounded-md text-secondary border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           placeholder="Entrez la description du projet"
         />
       </div>
 
       {/* Project picture */}
       <div className="rounded-md bg-gray-50 p-4 md:p-6 mb-6">
-        <label htmlFor="imageUrl" className="mb-2 block text-sm font-medium">
+        <label htmlFor="imageUrl" className="mb-2 block text-sm font-medium text-secondary">
           Logo du projet
         </label>
         <input
@@ -85,7 +86,7 @@ export default function Form({ project }: FormProps) {
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
           required
-          className="w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          className="w-full rounded-md border text-secondary border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           placeholder="Entrez la description du projet"
         />
       </div>

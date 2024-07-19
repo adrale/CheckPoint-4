@@ -45,10 +45,10 @@ export default function Form() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="rounded-md bg-gray-50 p-4 md:p-6">
+      <div className="rounded-md bg-gray-50 p-4 md:p-6 mb-6">
         {/* Project Name */}
         <div className="mb-4">
-          <label htmlFor="projectName" className="mb-2 block text-sm font-medium">
+          <label htmlFor="projectName" className="mb-2 block text-sm font-medium text-secondary">
             Nom de projet
           </label>
           <input
@@ -56,16 +56,16 @@ export default function Form() {
             id="projectName"
             value={title}
             onChange={handleTitleChange}
-            className="w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            className="w-full rounded-md border text-secondary  border-gray-300 bg-white py-2 pl-10 pr-3 text-sm  placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
             placeholder="Entrez le nom du projet"
           />
         </div>
       </div>
 
       {/* Project Description */}
-      <div className="rounded-md bg-gray-50 p-4 md:p-6">
+      <div className="rounded-md bg-gray-50 p-4 md:p-6 mb-6">
         <div className="mb-4">
-          <label htmlFor="descriptionProject" className="mb-2 block text-sm font-medium">
+          <label htmlFor="descriptionProject" className="mb-2 block text-sm font-medium text-secondary">
             Description de projet
           </label>
           <input
@@ -73,7 +73,7 @@ export default function Form() {
             id="descriptionProject"
             value={description}
             onChange={handleDescriptionChange}
-            className="w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            className="w-full rounded-md border text-secondary border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
             placeholder="Entrez la description du projet"
           />
         </div>
@@ -81,7 +81,7 @@ export default function Form() {
 
       {/* Project picture */}
       <div className="rounded-md bg-gray-50 p-4 md:p-6 mb-6">
-        <label htmlFor="imageUrl" className="mb-2 block text-sm font-medium">
+        <label htmlFor="imageUrl" className="mb-2 block text-sm font-medium text-secondary">
           Logo du projet
         </label>
         <input
@@ -90,7 +90,7 @@ export default function Form() {
           value={imageUrl}
           onChange={handleImageUrlChange}
           required
-          className="w-full rounded-md border border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          className="w-full rounded-md border text-secondary border-gray-300 bg-white py-2 pl-10 pr-3 text-sm placeholder-gray-400 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           placeholder="Entrez la description du projet"
         />
       </div>

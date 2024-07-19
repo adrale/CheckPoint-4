@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import Image from "next/image";
 import wcs from "../../../public/assets/lwcs.svg";
 import { MdArrowOutward } from "react-icons/md";
+import { CiMail, CiLinkedin } from "react-icons/ci";;
 
 export default function Status() {
   const [projects, setProjects] = useState<Project[]>([]);
@@ -26,7 +27,7 @@ export default function Status() {
   }, []);
 
   return (
-    <Section className="flex max-lg:flex-col items-start gap-4">
+    <Section className=" flex max-lg:flex-col items-start gap-4 pb-24">
       <div className="flex-[3] w-full">
         <Card className="w-full p-4 flex flex-col gap-2 ">
           <p className="text-lg text-muted-foreground">
@@ -68,15 +69,24 @@ export default function Status() {
         </Card>
         <Card className="p-3 bg-accent/10 flex items-center gap-4">
           <p className="text-lg text-muted-foreground">Me contacter</p>
-          <div className="mr-auto">
-            <div className="flex items-center gap-2">
-              <p className="text-md font-semibold">Alexandre Moro</p>
+          <div className="m-auto">
+            <p className="text-md font-semibold px-4">Mail</p>
+            <div className="flex justify-around">
+              <CiMail size={20}/>
+              <Link href="mailto:adrale@gmail.com">
+                <MdArrowOutward size={16} />
+              </Link>
             </div>
-            <p className="text-md font-semibold">adrale@gmail.com</p>
           </div>
-          <Link href="mailto:adrale@gmail.com">
-            <MdArrowOutward size={16} />
-          </Link>
+          <div className="m-auto">
+            <p className="text-md font-semibold">Linkedin</p>
+            <div className="flex justify-around">
+            <CiLinkedin size={20} />
+              <Link href="https://www.linkedin.com/in/alexandre-moro-adrale/">
+                <MdArrowOutward size={16} />
+              </Link>
+            </div>
+          </div>
         </Card>
       </div>
     </Section>
