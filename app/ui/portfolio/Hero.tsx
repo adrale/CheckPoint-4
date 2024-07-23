@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Section from "@/app/ui/portfolio/section";
-import profilePic from "../../../public/assets/ame.png";
+import profilePic from "../../../public/assets/profilepic26.jpg";
 
 export default function Hero() {
   return (
@@ -26,6 +26,7 @@ export default function Hero() {
           alt="Photo Alexandre Moro"
           width={200}
           height={300}
+          className="rounded-full"
         />
       </div>
     </Section>

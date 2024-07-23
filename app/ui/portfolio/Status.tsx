@@ -73,7 +73,7 @@ export default function Status() {
             <p className="text-md font-semibold px-4">Mail</p>
             <div className="flex justify-around">
               <CiMail size={20}/>
-              <Link href="mailto:adrale@gmail.com">
+              <Link href="mailto:alexandre.moro.24@gmail.com">
                 <MdArrowOutward size={16} />
               </Link>
             </div>
